@@ -1,9 +1,15 @@
-DROP SEQUENCE public.planet_person_reg_sequence;
+DROP DATABASE IF EXISTS testnovae;
 
-DROP TABLE public.planet;
+CREATE DATABASE IF NOT EXISTS testnovae
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
 
 
--- DROP TABLE public.persons;
+DROP TABLE public.credit_card;
+
 
 CREATE TABLE public.credit_card
 (

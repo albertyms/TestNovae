@@ -21,15 +21,12 @@ import java.util.Base64;
 import java.util.Date;
 
 @Component
-@PropertySource(value = "classpath:application.properties")
 public class Utils {
     private final Logger logger = LogManager.getLogger(Utils.class);
 
-    @Value("${secretKeyCipher}")
-    private String SECRET_KEY;
+    private final String SECRET_KEY = "TestNovae";
 
-    @Value("${secretKeySalt}")
-    private String SALT;
+    private final String SALT = "NovaeTest";
 
     public String encrypt(String strToEncrypt) {
         try {
