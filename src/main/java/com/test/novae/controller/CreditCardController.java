@@ -37,7 +37,7 @@ public class CreditCardController {
             creditCard.setBillingAddress(request.getBillingAddress());
             creditCard.setCvv(utils.encrypt(request.getCvv()));
             creditCard.setMaskNumber(utils.maskingCard(request.getMaskNumber()));
-            creditCard.setExpireDate(utils.returnDate(request.getExpireDate()));
+            creditCard.setExpireDate(request.getExpireDate());
             creditCard.setCreationDate(new Date());
             return ResponseEntity.ok(service.create(creditCard));
         } catch (Exception e) {
@@ -73,7 +73,7 @@ public class CreditCardController {
                 creditCard.get().setBillingAddress(request.getBillingAddress());
                 creditCard.get().setCvv(utils.encrypt(request.getCvv()));
                 creditCard.get().setMaskNumber(utils.maskingCard(request.getMaskNumber()));
-                creditCard.get().setExpireDate(utils.returnDate(request.getExpireDate()));
+                creditCard.get().setExpireDate(request.getExpireDate());
                 return ResponseEntity.ok(service.update(creditCard.get()));
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

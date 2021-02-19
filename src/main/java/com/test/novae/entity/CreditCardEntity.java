@@ -31,7 +31,7 @@ public class CreditCardEntity {
     @Column(name = "billing_address")
     private String billingAddress;
     @Column(name = "expired_date")
-    private Date expireDate;
+    private String expireDate;
     @Column(name = "cvv")
     private String cvv;
     @Column(name = "mark_number")
@@ -43,7 +43,7 @@ public class CreditCardEntity {
     public CreditCardEntity() {
     }
 
-    public CreditCardEntity(String cardHolderName, String cardNumber, String billingAddress, Date expireDate, String cvv, String maskNumber) {
+    public CreditCardEntity(String cardHolderName, String cardNumber, String billingAddress, String expireDate, String cvv, String maskNumber) {
         this.cardHolderName = cardHolderName;
         this.cardNumber = cardNumber;
         this.billingAddress = billingAddress;
@@ -84,11 +84,11 @@ public class CreditCardEntity {
         this.billingAddress = billingAddress;
     }
 
-    public Date getExpireDate() {
+    public String getExpireDate() {
         return expireDate;
     }
 
-    public void setExpireDate(Date expireDate) {
+    public void setExpireDate(String expireDate) {
         this.expireDate = expireDate;
     }
 

@@ -39,16 +39,16 @@ class NovaeTestApplicationTests {
         String expiredDateSrt2 = "12/2022";
         String expiredDateSrt3 = "12/2023";
 
-        Date expiredDate1 = utils.returnDate(expiredDateSrt1);
-        Date expiredDate2 = utils.returnDate(expiredDateSrt2);
-        Date expiredDate3 = utils.returnDate(expiredDateSrt3);
+        //Date expiredDate1 = utils.returnDate(expiredDateSrt1);
+        //Date expiredDate2 = utils.returnDate(expiredDateSrt2);
+        //Date expiredDate3 = utils.returnDate(expiredDateSrt3);
 
         CreditCardEntity card1 = new CreditCardEntity("Albert Medina", "5280000100020003",
-				"Carrera 1", expiredDate1, "123", "5280000100020003");
+				"Carrera 1", expiredDateSrt1, "123", "5280000100020003");
         CreditCardEntity card2 = new CreditCardEntity("Albert Medina", "5280000200030005",
-				"Carrera 1", expiredDate2, "123", "5280000100020003");
+				"Carrera 1", expiredDateSrt2, "123", "5280000100020003");
         CreditCardEntity card3 = new CreditCardEntity("Albert Medina", "5280000300040005",
-				"Carrera 1", expiredDate3, "123", "5280000100020003");
+				"Carrera 1", expiredDateSrt3, "123", "5280000100020003");
 
 		List<CreditCardEntity> listCards = new ArrayList<>();
 		listCards.add(card1);
@@ -56,7 +56,7 @@ class NovaeTestApplicationTests {
 		listCards.add(card3);
 
 		for (CreditCardEntity card: listCards) {
-			CreditCardEntity infoCard = new CreditCardEntity();
+			CreditCardEntity infoCard;
 			card.setCardNumber(utils.encrypt(card.getCardNumber()));
 			card.setCvv(utils.encrypt(card.getCvv()));
 			card.setMaskNumber(utils.maskingCard(card.getMaskNumber()));
