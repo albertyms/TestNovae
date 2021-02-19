@@ -100,4 +100,16 @@ public class CreditCardController {
         }
     }
 
+    @GetMapping("/getCard/{cardNumber}")
+    public ResponseEntity<CreditCardEntity> findByNumber(@PathVariable("cardNumber") String cardNumber) {
+        try {
+            cardNumber = utils.encrypt(cardNumber);
+            Optional<CreditCardEntity> creditCard = service.findByCardNumber(cardNumber);
+            return creditCard.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        } catch (Exception e) {
+            logger.error("Error:", e);
+            return null;
+        }
+    }
+
 }

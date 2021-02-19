@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.Optional;
 
@@ -40,7 +39,7 @@ public class CreditCardService {
             return repository.findById(id);
         } catch (Exception e) {
             logger.error("Error:", e);
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -58,6 +57,15 @@ public class CreditCardService {
             repository.delete(creditCard);
         } catch (Exception e) {
             logger.error("Error:", e);
+        }
+    }
+
+    public Optional<CreditCardEntity> findByCardNumber(String number) {
+        try {
+            return repository.findByCardNumber(number);
+        } catch (Exception e) {
+            logger.error("Error:", e);
+            return Optional.empty();
         }
     }
 
